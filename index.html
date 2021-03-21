@@ -719,15 +719,23 @@
             document.getElementById("hand10")
         ]
 
-        var questionId = 1;
+        var questionId = parseInt(location.hash.substring(1)) || 1;
 
         // Logic
         let getRandomInt = max => Math.floor(Math.random() * Math.floor(max));
         let getRandomCard = () => handCards[getRandomInt(handCards.length)]
 
-        let updateActualQuestion = () => question.innerHTML=questions[questionId]
+        let updateActualQuestion = () => {
+            question.innerHTML=questions[questionId]
+            location.hash=questionId
+        }
         let updateCard = (card) => card.innerHTML=getRandomCard()
-        let nextQuestion = () => questionId++ && updateActualQuestion();
+        let nextQuestionId = () => (questionId + 1) % questions.length
+
+        let nextQuestion = () => {
+            questionId=nextQuestionId()
+            updateActualQuestion()
+        }
 
         let initGame = () => {
             updateActualQuestion()
