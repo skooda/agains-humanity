@@ -36,11 +36,10 @@
         // Data
         let questions = [
             'Dear son, your father and I found _____ and _____ in your bedroom. I’m shocked and disappointed.',
-            '_____ as a Service',
-            '_____ makes the CEO happy.',
+            '_____ makes our CEO happy.',
             'For our next upgrade we’ll use _____; it’s the only way to deliver on time.',
             'After ten years working as a developer, I am addicted to _____.',
-            'Dear Bravo, I’m 15 and lately I’ve been having trouble with _____. Please help.',
+            'I would like to introduce _____ as a Service',
             'Our architecture is like _____. You never know what’s coming next.',
             'What took my virginity? _____.',
             'There still is a bug in _____.',
@@ -414,7 +413,7 @@
             document.getElementById("hand10")
         ]
 
-        var questionId = parseInt(location.hash.substring(1)) || 1;
+        var questionId = parseInt(location.hash.substring(1)) || 0;
 
         // Logic
         let getRandomInt = max => Math.floor(Math.random() * Math.floor(max));
